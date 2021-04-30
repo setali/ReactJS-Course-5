@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class DefaultProps extends Component {
+export class Title extends Component {
   //   static defaultProps = {
   //     color: 'Green',
   //     name: 'Ali'
@@ -15,9 +15,9 @@ export class DefaultProps extends Component {
   }
 }
 
-export default DefaultProps
+export default Title
 
-DefaultProps.defaultProps = {
+Title.defaultProps = {
   color: 'Green',
   name: 'Ali'
 }

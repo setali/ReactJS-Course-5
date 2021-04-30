@@ -13,7 +13,7 @@ class Users extends Component {
     return (
       <div>
         <ul>
-          {this.state.users.map(user => (
+          {this.state.users.map((user, index) => (
             <div key={user.id}>{user.name}</div>
           ))}
         </ul>

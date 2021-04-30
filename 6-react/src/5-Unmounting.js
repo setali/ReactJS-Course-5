@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 export class Parent extends Component {
   state = { mount: true }
+
   render () {
     return (
       <div>
