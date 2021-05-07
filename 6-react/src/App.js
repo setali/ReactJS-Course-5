@@ -6,13 +6,27 @@ import React from 'react'
 // import Unmounting from './5-Unmounting'
 // import ErrorBoundries from './6-ErrorBoundries'
 // import DefaultProps from './7-DefaultProps'
-import ListKeys from './8-ListKeys'
+// import ListKeys from './8-ListKeys'
+// import Fragment from './9-Fragment'
+// import Portal from './10-Portal'
+// import Form from './11-Form'
+// import AdvancedSetState from './12-AdvancedSetState'
+// import CreateRef from './13-CreateRef'
+// import PureComponent from './14-PureComponent'
+import HOC from './15-HOC/App'
 
 class App extends React.Component {
   render () {
     return (
       <div>
-        <ListKeys />
+        <HOC />
+        {/* <PureComponent /> */}
+        {/* <CreateRef /> */}
+        {/* <AdvancedSetState /> */}
+        {/* <Form /> */}
+        {/* <Portal /> */}
+        {/* <Fragment /> */}
+        {/* <ListKeys /> */}
         {/* <DefaultProps name={'Qoli'} color={'red'} />
         <DefaultProps />
         <DefaultProps name={'Eli'} color={'yellow'} /> */}
