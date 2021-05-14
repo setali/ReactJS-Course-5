@@ -3,6 +3,7 @@ import { Layout } from 'antd'
 import Footer from './components/generic/Footer'
 import Sidebar from './components/generic/Sidebar'
 import Header from './components/generic/Header'
+import PersonList from './components/person/List'
 import 'antd/dist/antd.css'
 import './asstes/css/general.css'
 
@@ -15,7 +16,9 @@ class App extends Component {
         <Sidebar />
         <Layout>
           <Header />
-          <Content className={'content'}>داشبورد مدیریتی من</Content>
+          <Content className={'content'}>
+            <PersonList />
+          </Content>
           <Footer />
         </Layout>
       </Layout>

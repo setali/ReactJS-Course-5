@@ -13,13 +13,27 @@ import React from 'react'
 // import AdvancedSetState from './12-AdvancedSetState'
 // import CreateRef from './13-CreateRef'
 // import PureComponent from './14-PureComponent'
-import HOC from './15-HOC/App'
+// import HOC from './15-HOC/App'
+// import Stateless from './16-Stateless'
+// import ClassVsFunctionComponent from './17-ClassVsFunctionComponent'
+// import UseState from './18-useState'
+// import UseEffect from './19-UseEffect'
+// import AdvancedEffectState from './20-AdvancedEffectState'
+// import HooksRules from './21-HooksRules'
+import CustomHook from './22-CustomHook'
 
 class App extends React.Component {
   render () {
     return (
       <div>
-        <HOC />
+        <CustomHook />
+        {/* <HooksRules /> */}
+        {/* <AdvancedEffectState /> */}
+        {/* <UseEffect /> */}
+        {/* <UseState /> */}
+        {/* <ClassVsFunctionComponent /> */}
+        {/* <Stateless /> */}
+        {/* <HOC /> */}
         {/* <PureComponent /> */}
         {/* <CreateRef /> */}
         {/* <AdvancedSetState /> */}
