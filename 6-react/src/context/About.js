@@ -1,10 +1,8 @@
 import React, { useContext } from 'react'
 import ThemeContext from './ThemeContext'
-import UserContext from './UserContext'
 
-export default function Home () {
+export default function About () {
   const theme = useContext(ThemeContext)
-  const { authenticated, user } = useContext(UserContext)
 
   return (
     <div
@@ -16,8 +14,7 @@ export default function Home () {
         ...theme
       }}
     >
-      {authenticated && `Welcome ${user.name}`}
-      <h2>My Home page</h2>
+      <h2>My About page</h2>
 
       <p>
         Sed ut perspiciatis, unde omnis iste natus error sit voluptatem
@@ -26,14 +23,6 @@ export default function Home () {
         explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut
         odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione
         voluptatem sequi nesciunt
-      </p>
-
-      <p>
-        But I must explain to you how all this mistaken idea of reprobating
-        pleasure and extolling pain arose. To do so, I will give you a complete
-        account of the system, and expound the actual teachings of the great
-        explorer of the truth, the master-builder of human happiness. No one
-        rejects, dislikes or avoids pleasure itself, because it is pleasure,
       </p>
     </div>
   )
