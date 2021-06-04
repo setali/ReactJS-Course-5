@@ -5,7 +5,6 @@ const converColumns = columns => columns.map(c => ({ ...c, dataIndex: c.key }))
 
 const Table = ({ data, columns, rowKey, loading }) => {
   const [tableColumns] = useState(converColumns.bind({}, columns))
-  console.log(tableColumns)
 
   return (
     <AntTable

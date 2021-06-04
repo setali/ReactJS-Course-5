@@ -1,9 +1,12 @@
 import { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
 import { Layout } from 'antd'
 import Footer from './components/generic/Footer'
 import Sidebar from './components/generic/Sidebar'
 import Header from './components/generic/Header'
-import PersonList from './components/person/List'
+import Dashboard from './components/generic/Dashboard'
+import Person from './components/person/Router'
+import Post from './components/post/Router'
 import 'antd/dist/antd.css'
 import './asstes/css/general.css'
 
@@ -17,7 +20,11 @@ class App extends Component {
         <Layout>
           <Header />
           <Content className={'content'}>
-            <PersonList />
+            <Switch>
+              <Route path='/' exact component={Dashboard} />
+              <Route path='/person*' exact component={Person} />
+              <Route path='/post*' exact component={Post} />
+            </Switch>
           </Content>
           <Footer />
         </Layout>

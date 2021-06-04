@@ -4,25 +4,21 @@ import { connect } from 'react-redux'
 import { EyeOutlined } from '@ant-design/icons'
 import axios from 'axios'
 import Table from '../utils/Table'
-import { setPersons } from '../../redux/actions/person'
+import { setPosts } from '../../redux/actions/posts'
 
 export class List extends Component {
   state = {
+    posts: [],
     loading: false
   }
 
   columns = [
     { title: 'شناسه', key: 'id' },
-    { title: 'نام', key: 'name' },
-    {
-      title: 'آدرس',
-      key: 'address',
-      render: (f, r) => `${f?.city} ${f?.street} ${r?.phone}`
-    },
+    { title: 'عنوان', key: 'title' },
     {
       key: 'actions',
       render: (field, record) => (
-        <Link to={`/person/${record.id}`}>
+        <Link to={`/post/${record.id}`}>
           <EyeOutlined />
         </Link>
       )
@@ -31,11 +27,11 @@ export class List extends Component {
 
   componentDidMount () {
     this.setState({ loading: true })
-    axios('https://jsonplaceholder.typicode.com/users').then(response => {
+    // this.props.setItems([])
+    axios('https://jsonplaceholder.typicode.com/posts').then(response => {
       this.setState({
         loading: false
       })
-
       this.props.setItems(response.data)
     })
   }
@@ -44,7 +40,7 @@ export class List extends Component {
     return (
       <div>
         <Table
-          data={this.props.persons}
+          data={this.props.posts}
           columns={this.columns}
           loading={this.state.loading}
         />
@@ -53,17 +49,15 @@ export class List extends Component {
   }
 }
 
-// export default List
-
 const mapStateToProps = state => {
   return {
-    persons: state.persons
+    posts: state.posts
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    setItems: data => dispatch(setPersons(data))
+    setItems: data => dispatch(setPosts(data))
   }
 }
 

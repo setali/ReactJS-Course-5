@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  FileOutlined,
-  TeamOutlined,
-  UserOutlined
+  DashboardOutlined,
+  UserOutlined,
+  SnippetsOutlined
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
 
@@ -30,23 +29,19 @@ export class Sidebar extends Component {
       >
         <div className='logo' />
         <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
-          <Menu.Item key='1' icon={<PieChartOutlined />}>
-            Option 1
+          <Menu.Item key='2' icon={<DashboardOutlined />}>
+            <Link to='/'>داشبورد</Link>
           </Menu.Item>
-          <Menu.Item key='2' icon={<DesktopOutlined />}>
-            Option 2
-          </Menu.Item>
-          <SubMenu key='sub1' icon={<UserOutlined />} title='User'>
-            <Menu.Item key='3'>Tom</Menu.Item>
-            <Menu.Item key='4'>Bill</Menu.Item>
-            <Menu.Item key='5'>Alex</Menu.Item>
+          <SubMenu key='person' icon={<UserOutlined />} title='مدیریت کاربران'>
+            <Menu.Item key='3'>
+              <Link to='/person'>لیست کاربران</Link>
+            </Menu.Item>
+            <Menu.Item key='4'>
+              <Link to='/person/new'>ایجاد کاربر</Link>
+            </Menu.Item>
           </SubMenu>
-          <SubMenu key='sub2' icon={<TeamOutlined />} title='Team'>
-            <Menu.Item key='6'>Team 1</Menu.Item>
-            <Menu.Item key='8'>Team 2</Menu.Item>
-          </SubMenu>
-          <Menu.Item key='9' icon={<FileOutlined />}>
-            Files
+          <Menu.Item key='post' icon={<SnippetsOutlined />}>
+            <Link to='/post'>مقالات</Link>
           </Menu.Item>
         </Menu>
       </Sider>
