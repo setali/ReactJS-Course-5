@@ -4,14 +4,9 @@ import { connect } from 'react-redux'
 import { EyeOutlined } from '@ant-design/icons'
 import axios from 'axios'
 import Table from '../utils/Table'
-import { setPosts } from '../../redux/actions/posts'
+import { setPosts, getPosts } from '../../redux/actions/posts'
 
 export class List extends Component {
-  state = {
-    posts: [],
-    loading: false
-  }
-
   columns = [
     { title: 'شناسه', key: 'id' },
     { title: 'عنوان', key: 'title' },
@@ -26,24 +21,13 @@ export class List extends Component {
   ]
 
   componentDidMount () {
-    this.setState({ loading: true })
-    // this.props.setItems([])
-    axios('https://jsonplaceholder.typicode.com/posts').then(response => {
-      this.setState({
-        loading: false
-      })
-      this.props.setItems(response.data)
-    })
+    this.props.getItems()
   }
 
   render () {
     return (
       <div>
-        <Table
-          data={this.props.posts}
-          columns={this.columns}
-          loading={this.state.loading}
-        />
+        <Table data={this.props.posts} columns={this.columns} />
       </div>
     )
   }
@@ -57,7 +41,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    setItems: data => dispatch(setPosts(data))
+    // setItems: data => dispatch(setPosts(data))
+    getItems: () => dispatch(getPosts())
+    // getItems: () => getPosts(dispatch)
+    // getItems: () => dispatch({ type: '', payload: {} })
   }
 }
 
