@@ -1,20 +1,34 @@
-export function posts (state = [], action) {
-  switch (action.type) {
-    case 'POSTS':
-      return action.payload
+import { createReducer } from '@reduxjs/toolkit'
+import { setPosts, setPost } from '../actions/posts'
 
-    default:
-      return state
+export const posts = createReducer([], {
+  [setPosts]: (state, { payload }) => payload
+})
+
+export const post = createReducer(
+  {},
+  {
+    [setPost]: (state, { payload }) => payload
   }
-}
+)
 
-export function post (state = {}, action) {
-  switch (action.type) {
-    case 'POST':
-      console.log(action.payload)
-      return action.payload
+// export function posts (state = [], action) {
+//   switch (action.type) {
+//     case 'POSTS':
+//       return action.payload
 
-    default:
-      return state
-  }
-}
+//     default:
+//       return state
+//   }
+// }
+
+// export function post (state = {}, action) {
+//   switch (action.type) {
+//     case 'POST':
+//       console.log(action.payload)
+//       return action.payload
+
+//     default:
+//       return state
+//   }
+// }

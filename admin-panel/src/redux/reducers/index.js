@@ -1,11 +1,14 @@
 import { combineReducers } from 'redux'
 import { persons } from './person'
 import { posts, post } from './post'
+import { user, isLoggedIn } from './user'
 
 export default combineReducers({
   persons,
   posts,
-  post
+  post,
+  user,
+  isLoggedIn
 })
 
 // export default function reducer (state = {}, action) {

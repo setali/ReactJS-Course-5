@@ -6,6 +6,8 @@ import {
   SnippetsOutlined
 } from '@ant-design/icons'
 import { Layout, Menu } from 'antd'
+import { connect } from 'react-redux'
+import { logout } from '../../redux/actions/user'
 
 const { Sider } = Layout
 const { SubMenu } = Menu
@@ -27,7 +29,7 @@ export class Sidebar extends Component {
         collapsed={this.state.collapsed}
         onCollapse={this.onCollapse}
       >
-        <div className='logo' />
+        <div className='logo'></div>
         <Menu theme='dark' defaultSelectedKeys={['1']} mode='inline'>
           <Menu.Item key='2' icon={<DashboardOutlined />}>
             <Link to='/'>داشبورد</Link>
@@ -43,10 +45,28 @@ export class Sidebar extends Component {
           <Menu.Item key='post' icon={<SnippetsOutlined />}>
             <Link to='/post'>مقالات</Link>
           </Menu.Item>
+          <Menu.Item key='logout' icon={<SnippetsOutlined />}>
+            <span
+              onClick={() => {
+                this.props.logout()
+              }}
+            >
+              خروج
+            </span>
+          </Menu.Item>
         </Menu>
       </Sider>
     )
   }
 }
 
-export default Sidebar
+const mapStateToProps = () => {
+  return {}
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(logout())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
