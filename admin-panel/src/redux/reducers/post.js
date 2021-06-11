@@ -7,3 +7,14 @@ export function posts (state = [], action) {
       return state
   }
 }
+
+export function post (state = {}, action) {
+  switch (action.type) {
+    case 'POST':
+      console.log(action.payload)
+      return action.payload
+
+    default:
+      return state
+  }
+}

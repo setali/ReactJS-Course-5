@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 import { persons } from './person'
-import { posts } from './post'
+import { posts, post } from './post'
 
 export default combineReducers({
   persons,
-  posts
+  posts,
+  post
 })
 
 // export default function reducer (state = {}, action) {

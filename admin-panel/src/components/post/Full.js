@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import { Divider } from 'antd'
 import axios from 'axios'
+import { getPost } from '../../redux/actions/posts'
 
 function Full () {
   const { id } = useParams()
 
-  const [post, setPost] = useState({})
+  const dispatch = useDispatch()
+
+  const post = useSelector(state => state.post)
 
   useEffect(() => {
-    axios(`https://jsonplaceholder.typicode.com/posts/${id}`).then(response =>
-      setPost(response.data)
-    )
+    dispatch(getPost(id))
   }, [id])
 
-  console.log(id)
   return (
     <div>
       <h3>نمایش مقاله</h3>
