@@ -1,9 +1,13 @@
+import Head from 'next/head'
 import Main from '../layouts/Main'
 import styles from '../styles/contact.module.css'
 
 function Contact () {
   return (
     <Main>
+      <Head>
+        <title>ReactJS | Contact Page</title>
+      </Head>
       <div>
         <h3 className={styles.header}>Contact us</h3>
         <p className={styles.paragraph}>
